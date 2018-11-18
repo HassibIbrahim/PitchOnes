@@ -19,11 +19,11 @@ As a user,you can comment on the different pitches and leave feedback.
 As a user, you can submit a pitch in any category.
 As a user, you can view the different categories.
 
-##  UI Design 
+##   UI Design 
 The application has a clean, simple, well-organized user interface.
 It has a consistent colour scheme and uses appropriate fonts.
 
-## Project Objectives 
+##  Project Objectives 
 The project has a user model.
 The models implement a 1 one-many relationship.
 The project has a comment model.
