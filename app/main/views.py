@@ -26,3 +26,42 @@ def comments(id):
     title = 'Comments'
     comments = Comment.get_comments(id)
     return render_template('comments.html', title=title, comments=comments)
+
+
+@main.route('/category/post/new/<ct_name>', methods=['GET', 'POST'])
+@login_required
+def new_post(ct_name):
+    form = PostForm()
+    category = ct_name
+
+    if form.validate_on_submit():
+        title = form.title.data
+        post = form.post.data
+        ctg = form.category.data
+        print(title)
+        new_post = Post(post_category=ctg, post_title=title,
+                        post_text=post, post_votes=0, user=current_user)
+        new_post.save_post()
+        return redirect(url_for('.category', ct_name=category))
+
+    title = 'New Post'
+    return render_template('new_posts.html', title=title, form=form, category=category)
+
+
+@main.route('/category/post/comments/new/<int:id>', methods=['GET', 'POST'])
+@login_required
+def new_comment(id):
+    form = CommentForm()
+    print(id)
+
+    if form.validate_on_submit():
+            post_id = id
+            comment = form.comment.data
+            print(comment)
+            new_comment = Comment(comment_text=comment,post_id=post_id, user_id=current_user.id)
+            new_comment.save_comment()
+            return redirect(url_for('.view_post', id=id))
+
+            
+    title = 'New Comment'
+    return render_template('new_comments.html', title=title, form= form)
