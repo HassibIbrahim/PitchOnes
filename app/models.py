@@ -40,7 +40,6 @@ class User(UserMixin, db.Model):
 class Post(db.Model):
     __tablename__ = 'posts'
 
-
     id = db.Column(db.Integer, primary_key=True)
     post_category = db.Column(db.String)
     post_title = db.Column(db.String)
@@ -56,7 +55,8 @@ class Post(db.Model):
 
     @classmethod
     def get_posts(cls, category):
-        posts = Post.query.filter_by(post_category=category).order_by(Post.post_time.desc()).all()
+        posts = Post.query.filter_by(post_category=category).order_by(
+            Post.post_time.desc()).all()
         return posts
 
     @classmethod
@@ -65,3 +65,22 @@ class Post(db.Model):
         filter_by(user_id=user).\
         order_by(Post.post_time).all()
         return posts
+
+
+class Comment(db.Model):
+    __tablename__ = 'comments'
+    id = db.Column(db.Integer, primary_key=True)
+    comment_text = db.Column(db.String)
+    comment_time = db.Column(db.DateTime, default=datetime.utcnow)
+    post_id = db.Column(db.Integer, db.ForeignKey('posts.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
+
+        
+    @classmethod
+    def get_comments(cls,id):
+        comments = Comment.query.filter_by(post_id = id).all()
+        return  comments
