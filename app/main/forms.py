@@ -6,3 +6,16 @@ from wtforms.validators import Required, DataRequired
 class UpdateProfile(FlaskForm):
         bio = TextAreaField('Tell us about you.', validators=[DataRequired()])
         submit = SubmitField('Submit')
+
+
+class PostForm(FlaskForm):
+    category = SelectField('Category', choices=[(
+        'dadjokes', 'DadJokes'), ('til', 'TIL'), ('showerthoughts', 'ShowerThoughts')])
+    title = StringField('Post title', validators=[DataRequired()])
+    post = TextAreaField('Write your post', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
+
+class CommentForm(FlaskForm):
+    comment = TextAreaField('Write your comment',validators=[DataRequired()])
+    submit = SubmitField('Submit')
