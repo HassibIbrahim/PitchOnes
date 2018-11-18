@@ -66,6 +66,7 @@ def new_comment(id):
     title = 'New Comment'
     return render_template('new_comments.html', title=title, form=form)
 
+
 @main.route('/post/view/<int:id>', methods=['GET', 'POST'])
 def view_post(id):
     test = id
@@ -75,3 +76,14 @@ def view_post(id):
     print(post.post_text)
     comments = Comment.get_comments(id)
     return render_template('view.html', post=post, comments=comments, id=id)
+
+
+@main.route('/user/<uname>')
+def profile(uname):
+    user = User.query.filter_by(username=uname).first()
+    if user is None:
+        abort(404)
+    print(user.id)
+    posts = Post.query.filter_by(user_id=user.id).order_by(Post.post_time.desc()).all()
+
+    return render_template('profile/profile.html', user=user, posts=posts)
