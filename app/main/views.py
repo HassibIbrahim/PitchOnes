@@ -55,13 +55,23 @@ def new_comment(id):
     print(id)
 
     if form.validate_on_submit():
-            post_id = id
-            comment = form.comment.data
-            print(comment)
-            new_comment = Comment(comment_text=comment,post_id=post_id, user_id=current_user.id)
-            new_comment.save_comment()
-            return redirect(url_for('.view_post', id=id))
+        post_id = id
+        comment = form.comment.data
+        print(comment)
+        new_comment = Comment(comment_text=comment,
+                              post_id=post_id, user_id=current_user.id)
+        new_comment.save_comment()
+        return redirect(url_for('.view_post', id=id))
 
-            
     title = 'New Comment'
-    return render_template('new_comments.html', title=title, form= form)
+    return render_template('new_comments.html', title=title, form=form)
+
+@main.route('/post/view/<int:id>', methods=['GET', 'POST'])
+def view_post(id):
+    test = id
+    print(test)
+    print('test')
+    post = Post.query.filter_by(id=id).first()
+    print(post.post_text)
+    comments = Comment.get_comments(id)
+    return render_template('view.html', post=post, comments=comments, id=id)
