@@ -1,0 +1,68 @@
+body{
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    color:rgb(240, 201, 201);
+    font-family: 'Raleway', sans-serif;
+    }
+    
+    h1 {
+      font-size: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+    }
+    
+    #intro{
+      font-size: 24px;
+    }
+    
+    #select{
+      font-size: 22px;
+    }
+    
+    .panel-body{
+      color:black;
+    }
+    
+    #view-title{
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+    
+    .panel-title{
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+    
+    .content{
+      font-size:15px;
+    }
+    
+    .panel-body{
+      font-size:16px;
+    }
+    
+    .firstletter::first-letter{
+      text-transform: uppercase;
+    }
+    #index{
+      width: 700px;
+      margin: 200px auto;
+      
+    }
+    
+    #category{
+      width: 800px;
+      margin: 20px auto;
+    }
+    
+    #view{
+      width: 800px;
+      margin: 20px auto;
+    }
+    
+    #profile{
+      width: 800px;
+      margin: 20px auto;
+    }
