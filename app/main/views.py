@@ -58,8 +58,7 @@ def new_comment(id):
         post_id = id
         comment = form.comment.data
         print(comment)
-        new_comment = Comment(comment_text=comment,
-                              post_id=post_id, user_id=current_user.id)
+        new_comment = Comment(comment_text=comment, post_id=post_id, user_id=current_user.id)
         new_comment.save_comment()
         return redirect(url_for('.view_post', id=id))
 
