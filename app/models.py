@@ -55,8 +55,7 @@ class Post(db.Model):
 
     @classmethod
     def get_posts(cls, category):
-        posts = Post.query.filter_by(post_category=category).order_by(
-            Post.post_time.desc()).all()
+        posts = Post.query.filter_by(post_category=category).order_by(Post.post_time.desc()).all()
         return posts
 
     @classmethod
@@ -79,7 +78,7 @@ class Comment(db.Model):
         db.session.add(self)
         db.session.commit()
 
-        
+
     @classmethod
     def get_comments(cls,id):
         comments = Comment.query.filter_by(post_id = id).all()
