@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+ {% block content %}
+ <div id="index">
+<h1>Welcome  To  PitchOnes !</h1>
+<p id='intro'>An application that allows you to submit pitch ones a mintue.</p>
+<br>
+<p id='select'>Please select a catagory:</p>
+<div class="btn-group  btn-group-justified" role="group" aria-label="...">
+    <div class="btn-group" role="group">
+        <a class="btn btn-primary btn-lg" href="/category/showerthoughts">i. NightThoughts</a>
+    </div>
+    <div class="btn-group" role="group">
+         <a  class="btn btn-primary btn-lg" href="{{url_for('main.category',ct_name='dadjokes')}}">ii. Jokes</a>
+    </div>
+    <div class="btn-group" role="group">
+       <a class="btn btn-primary btn-lg" href="/category/til">iii. ASAP</a>
+  </div>
+</div>
+ {% endblock%}
