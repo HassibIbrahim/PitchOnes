@@ -7,7 +7,7 @@ class Config:
         General configuration parent class
         """
         SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://shabbaman:Kwanini@localhost/pitchones'
-        SECRET_KEY = os.environ.get('SECRET_KEY')
+        SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guesss'
         SQLALCHEMY_TRACK_MODIFICATIONS = False
         UPLOADED_PHOTOS_DEST = 'app/static/photos'
         MAIL_SERVER = 'smtp.googlemail.com'
@@ -27,7 +27,9 @@ class ProdConfig(Config):
         Config: The parent configuration class with General
         configuration settings
     """
-    # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    DEBUG = True
+
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
 
 class DevConfig(Config):
@@ -38,7 +40,8 @@ class DevConfig(Config):
     configuration settings
     """
 # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://shabbaman:Kwanini@localhost/pitchones'
-DEBUG = True
+    # SECRET_KEY = os.urandom(38)
+    DEBUG = True
 
 config_options = {
 'development':DevConfig,

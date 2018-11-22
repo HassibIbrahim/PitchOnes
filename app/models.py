@@ -61,8 +61,8 @@ class Post(db.Model):
     @classmethod
     def get_user_posts(cls, user):
         posts = Post.query.\
-        filter_by(user_id=user).\
-        order_by(Post.post_time).all()
+            filter_by(user_id=user).\
+            order_by(Post.post_time).all()
         return posts
 
 

@@ -39,8 +39,7 @@ def new_post(ct_name):
         post = form.post.data
         ctg = form.category.data
         print(title)
-        new_post = Post(post_category=ctg, post_title=title,
-                        post_text=post, post_votes=0, user=current_user)
+        new_post = Post(post_category=ctg, post_title=title,post_text=post, post_votes=0, user=current_user)
         new_post.save_post()
         return redirect(url_for('.category', ct_name=category))
 

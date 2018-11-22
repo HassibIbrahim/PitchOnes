@@ -6,16 +6,15 @@ from flask_uploads import UploadSet, configure_uploads, IMAGES
 from flask_mail import Mail
 from flask_bootstrap import Bootstrap
 
-bootstrap = Bootstrap()
-db = SQLAlchemy()
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
 login_manager.login_view = 'auth.login'
+
+db = SQLAlchemy()
+photos = UploadSet('photos', IMAGES)
 mail = Mail()
 
-photos = UploadSet('photos', IMAGES)
-
-
+bootstrap = Bootstrap()
 
 
 def create_app(config_name):
