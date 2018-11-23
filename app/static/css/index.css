@@ -4,12 +4,12 @@ body{
     background: linear-gradient(to right, rgb(208, 103, 85), rgb(213, 228, 49), rgb(4, 171, 101)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     
     color:rgb(53, 3, 3);
-    font-family: 'Indie Flower', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     }
     
     h1 {
       font-size: 50px;
-      font-family: 'Merriweather', sans-serif;
+      font-family: 'Cinzel', sans-serif;
       font-weight: bold;
     }
     

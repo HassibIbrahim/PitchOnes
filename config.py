@@ -14,7 +14,9 @@ class Config:
         MAIL_PORT = 587
         MAIL_USE_TLS = True
         MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
+        
         MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
+        print(MAIL_PASSWORD)
 
 class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://shabbaman:Kwanini@localhost/pitch_test'
@@ -39,7 +41,7 @@ class DevConfig(Config):
     Config: The parent configuration class with General
     configuration settings
     """
-# SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://shabbaman:Kwanini@localhost/pitchones'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://shabbaman:Kwanini@localhost/pitchones'
     # SECRET_KEY = os.urandom(38)
     DEBUG = True
 
